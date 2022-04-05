@@ -27,6 +27,9 @@ namespace Discover.GraphQL
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<IBlogPostRepository, BlogPostRepository>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
