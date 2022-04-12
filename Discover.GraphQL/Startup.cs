@@ -1,3 +1,5 @@
+using Discover.GraphQL.Repositories.Interfaces;
+using Discover.GraphQL.Repositories.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,7 +28,7 @@ namespace Discover.GraphQL
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddGraphQLServer();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 
@@ -43,6 +45,11 @@ namespace Discover.GraphQL
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UsePlayground(new PlaygroundOptions
+                {
+                    QueryPath = "/graphql",
+                    Path = "/playground"
+                });
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Discover.GraphQL v1"));
             }

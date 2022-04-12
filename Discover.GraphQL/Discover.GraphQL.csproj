@@ -8,6 +8,7 @@
     <PackageReference Include="GraphQL" Version="5.0.0" />
     <PackageReference Include="GraphQL.NewtonsoftJson" Version="5.0.0" />
     <PackageReference Include="GraphQL.SystemTextJson" Version="5.0.0" />
+    <PackageReference Include="HotChocolate.Types" Version="12.7.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.15" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
